@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: [self-hosted]
     steps:
+      - uses: actions/checkout@v3
       - name: start action
         run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - uses: actions/checkout@v3
-        name: docker build
+      - name: docker build
         run: docker build -t test:1.0 .
       - name: docker run
         run: docker run test:1.0
